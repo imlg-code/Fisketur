@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fisketur
+Dette er et individuelt skoleprosjekt som er laget med next.js og typescript.
 
-## Getting Started
+## Formål og målgruppe
+Fisketur skal hjelpe familier eller tur interesserte med å utforske fiskevann utvalgt i Telemark og Sørmyr området. Nettstedet skal samle informasjon om fisk, vann, adkomst, bommer og evt nøkkelinformasjon, så brukeren kan planlegge turen etter forskjellige forhold.
 
-First, run the development server:
+## Teknologi
+- Next.js med App router
+- React og Typescript
+- CSS og CSS modules
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Hvordan kjøre prosjektet
+Du trenger Node.js og npm
+Kjør kodene fra web-mappen i terminalen.
+- npm install
+- npm run dev
+Åpne adressen som vises i terminalen.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Kilder
+Planlagt hoved API er NVEs innsjødatabase:
+https://kart.nve.no/enterprise/rest/services/Innsjodatabase2/MapServer/5
+Har også sett på NVDB som kilde til registrerte bommer.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Opplysninger om fiske, adkomst og nøkkelordninger suppleres med informasjon hentet fra grunneiere, fiskeforeninger og rapporter som blir funnet.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Kjente begrensninger
+Utvalget av fiskevann er begrenset til 18 fiskevannområder. Ikke alle gangruter, parkeringsplasser eller koblinger mellom bom og nøkkel er bekreftet. Manglende info skal merkes tydelig. Nettsiden gir ikke sanntids status på bommer eller tilgjengelige nøkler.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Krav til oppgaven
+- Utvikle nettstedet med Next.js og TypeScript.
+- Teste at valgt eksternt API gir både liste og detaljer før resten bygges.
+- Hente og vise data fra minst ett eksternt API.
+- Lage en forside som forklarer formålet og viser veien videre.
+- Lage en oversiktsside med elementer hentet fra API-et.
+- Lage dynamiske detaljsider som bruker ruteverdien til å finne riktig innhold.
+- Lage en om-side med målgruppe, datakilder og hvem som har laget nettstedet.
+- Bruke Link til navigasjon mellom sidene.
+- Sørge for at sidene fungerer ved direkte URL og refresh.
+- Bruke layout.tsx til felles header, main og footer.
+- Dele grensesnittet i komponenter med tydelige ansvar og gjenbruke dem der det passer.
+- Bruke TypeScript-typer for data og props.
+- Implementere minst én funksjon for søk, filtrering eller sortering.
+- Vise en forståelig melding ved null treff og tydeliggjøre søkets eventuelle avgrensning.
+- Håndtere API-feil og elementer som ikke finnes.
+- Lage en sammenhengende visuell stil som fungerer på mobil og større skjermer.
+- Bruke semantisk HTML og logisk overskriftstruktur.
+- Gi skjemafelt tydelige etiketter og bilder passende alternativ tekst.
+- Gjøre navigasjon og skjemaer brukbare med tastatur og synlig fokus.
+- Ha commits som viser utviklingen underveis.
+- Dokumentere formål, målgruppe, installasjon, oppstart og API i README.
+- Beskrive kjente feil og begrensninger i README.
+- Holde eventuelle hemmelige API-nøkler utenfor Git-repositoryet.
+- Skrive et refleksjonsnotat om valg, utfordringer, læring og mulige forbedringer.
+- Teste brukerflyten, navigasjonen, detaljsidene og feiltilstandene.
+- Kontrollere at npm run build fullføres uten feil.
