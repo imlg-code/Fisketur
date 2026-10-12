@@ -21,3 +21,5 @@ Jeg koblet hentefunksjonen til fiskevann siden og brukte map til å vise navn og
 La også inn tekst som vises dersom informasjon mangler.
 ## Planla videre arbeid
 Jeg opprettet en hovedoppgave i Github og seks sub-issues.
+## Gjenbrukbare fiskevannkort
+Jeg flyttet visningen av ett vann til komponenten FiskevannKort. Siden sender opplysninger inn med props. Jeg brukte CSS modules til å style og Grid for å tilpasse kolonner til skjermbredden. 
