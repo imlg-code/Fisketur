@@ -1,4 +1,6 @@
+import FiskevannKort from "../components/FiskevannKort/FiskevannKort";
 import { hentFiskevann  } from "../library/nve";
+import styles from "./page.module.css";
 export default async function FiskevannPage() {
     const fiskevann = await hentFiskevann();
     return ( 
@@ -6,17 +8,10 @@ export default async function FiskevannPage() {
             <h1>Utforsk fiskevann</h1>
             <p>Her kommer oversikt over fiskevann som er kartlagt i Telemark og Sørmyr.</p>
             <p>Har hentet {fiskevann.length} innsjø oppføringer fra NVE.</p>
-<ul>
+<ul className={styles.lakeList}>
   {fiskevann.map((vann) => (
     <li key={vann.vatnlnr}>
-      <h2>{vann.navn ?? "Navn mangler"}</h2>
-
-      <p>
-        Areal:{" "}
-        {vann.areal_km2 !== null
-          ? `${vann.areal_km2} km²`
-          : "Ikke oppgitt"}
-      </p>
+      <FiskevannKort vann={vann} />
     </li>
   ))}
 </ul>
