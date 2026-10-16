@@ -27,3 +27,16 @@ Jeg laget FiskevannKort som en egen komponent og flyttet visningen av navn og ar
 Jeg laget en CSS Module for kortet og en annen for oversiktssiden. Kortets CSS styrer blant annet bakgrunn, ramme og luft inni kortet. Sidens CSS styrer listen og plasseringen av kortene.
 
 Jeg brukte CSS Grid med repeat, auto-fit og minmax for å tilpasse antall kolonner til tilgjengelig bredde. Kortene kan derfor vises i flere kolonner på en bred skjerm og en kolonne når plassen blir mindre.
+
+NVE bruker tall som id, men jeg ønsker lesbare adresser som /fiskevann/eiangen. Jeg opprettet filen vannomrader.ts i app/library. Definerte typen Vannomrade som beskriver adressenavnet, navnet som skal vises på siden og hvilke NVE id'er området tilhører. Bruker number[] for å håndtere at vannområdene kan ha en id eller flere.
+
+Lagde mappen [adresseNavn] med en page.tsx som skal vise detaljsiden. Disse [] gjør at samme side kan brukes til forskjellige vannområder. Next.js sender navnet fra adressen gjennom params. Bruker await for å lese det. 
+
+Bruker find for å lete etter området som passer til navnet i adressen. Hvis området finnes viser jeg navnet som er lagret i listen. Hvis det ikke finnes viser jeg en paragraf med "Fant ikke vannområdet".
+
+Jeg bruker hentFiskevann til å hente listen med fiskevann fra NVE. Med filter beholder jeg bare vannområdene som tilhører det valgte området. Bruker includes til å sjekke om vannets id finnes i områdets liste med NVE id'er. 
+På detaljsiden bruker jeg map til å vise navn og areal.
+
+Jeg la inn de 18 vannområdene i vannomrader.ts. Hvert område har adressenavn og en liste med NVE id'er. Tjennane har to id'er, men skal vises som ett område. Jeg endret oversikten til å lage ett kort til hvert vannområde. Kortet får vannets navn og areal fra props. Jeg brukte Link på overskriften så brukeren kan klikke på navnet og føres til riktig detaljside.
+
+Jeg bruker notFound() hvis navnet i adressen ikke finnes i område listen, da vises Next.js sin standard 404 side. 
