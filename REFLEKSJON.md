@@ -40,3 +40,5 @@ På detaljsiden bruker jeg map til å vise navn og areal.
 Jeg la inn de 18 vannområdene i vannomrader.ts. Hvert område har adressenavn og en liste med NVE id'er. Tjennane har to id'er, men skal vises som ett område. Jeg endret oversikten til å lage ett kort til hvert vannområde. Kortet får vannets navn og areal fra props. Jeg brukte Link på overskriften så brukeren kan klikke på navnet og føres til riktig detaljside.
 
 Jeg bruker notFound() hvis navnet i adressen ikke finnes i område listen, da vises Next.js sin standard 404 side. 
+
+Jeg lagde søkefunksjonen i en komponent som heter FiskevannOversikt. Den får vannområdene som props. Jeg la inn "use client" fordi komponenten skal reagere når brukeren skriver. Jeg bruker useState til å huske søketeksten. 
