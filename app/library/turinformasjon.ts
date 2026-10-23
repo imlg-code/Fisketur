@@ -327,7 +327,7 @@ export const turinformasjon: Turinformasjon[] = [
 
     fiske: {
       tekst:
-        "Grenland Sportsfiskere tilbyr leie av robåt i Stodalstjønn. Se foreningens fiskeregler og vilkår før turen.",
+        "Stodalstjønn er et av fiskevannene til Grenland Sportsfiskere. Foreningen tilbyr båtleie og har egne regler for fisket. Ørret er tidligere registrert i vannet, men har ikke nyere opplysninger om bestanden. Se foreningens fiskeregler og vilkår før turen.",
       kildeNavn: "Grenland Sportsfiskere – utleie",
       kildeUrl: "https://grenlandsportsfiskere.no/vare-hytter/",
       status: "kildebelagt",
