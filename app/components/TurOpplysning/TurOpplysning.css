@@ -1,0 +1,66 @@
+
+.tur-kort {
+  background-color: #fffefa;
+  border: 1px solid #e3e4db;
+  border-radius: 16px;
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  transition: box-shadow 0.2s ease,
+              transform 0.2s ease;
+}
+
+.tur-kort:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(32, 55, 45, 0.08);
+}
+
+.tur-kort-tittel {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #213c32;
+  margin: 0;
+}
+
+.tur-kort-tekst {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #35463e;
+  margin: 0;
+}
+
+.tur-kort-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.tur-kort-status {
+  background-color: #e6eee7;
+  color: #29473b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.tur-kort-kilde {
+  font-size: 0.85rem;
+  color: #64736a;
+  margin: 0;
+}
+
+.tur-kort-kilde a {
+  color: #29473b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tur-kort-kilde a:hover {
+  color: #52745d;
+}

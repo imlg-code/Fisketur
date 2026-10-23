@@ -42,3 +42,13 @@ Jeg la inn de 18 vannområdene i vannomrader.ts. Hvert område har adressenavn o
 Jeg bruker notFound() hvis navnet i adressen ikke finnes i område listen, da vises Next.js sin standard 404 side. 
 
 Jeg lagde søkefunksjonen i en komponent som heter FiskevannOversikt. Den får vannområdene som props. Jeg la inn "use client" fordi komponenten skal reagere når brukeren skriver. Jeg bruker useState til å huske søketeksten. 
+
+Jeg lagde turinformasjon.ts for å samle informasjon om fiske, adkomst, parkering, bom og nøkkel. Dette er opplysninger jeg legger inn manuelt med kilder, mens navn og areal fortsatt hentes fra NVE.
+
+Jeg lagde typen Opplysning som beskriver tekst, kildenavn, kildelenke og status. Hver opplysning har sin egen status fordi jeg kan ha informasjon om bommen, men ikke vite hvor det er lov å parkere.
+
+Jeg begynte med å legge inn informasjon om Tjennane. På detaljsiden bruker jeg find til å finne turinformasjonen med samme adressenavn som området. Hvis informasjonen mangler viser siden en melding om det.
+
+Jeg lagde komponenten TurOpplysning for å slippe å skrive koden som viser tekst, status og kilde flere ganger. Den får en overskrift og et objekt med informasjon gjennom props. Jeg bruker komponenten til å vise fiske, adkomst, parkering, bom og nøkkel.
+
+Jeg la inn informasjon om bom og adkomst for flere vannområder. Med hjelp av KI brukte jeg kartdata fra statens vegvesen og Norgeskart til å beregne avstander og bommer langs veiene.

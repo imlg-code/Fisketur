@@ -1,0 +1,29 @@
+
+.detalj-side {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.detalj-tittel {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: #213c32;
+  margin: 0 0 40px;
+}
+
+.detalj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .detalj-side {
+    padding: 32px 16px;
+  }
+
+  .detalj-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
