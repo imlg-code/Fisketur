@@ -52,3 +52,8 @@ Jeg begynte med å legge inn informasjon om Tjennane. På detaljsiden bruker jeg
 Jeg lagde komponenten TurOpplysning for å slippe å skrive koden som viser tekst, status og kilde flere ganger. Den får en overskrift og et objekt med informasjon gjennom props. Jeg bruker komponenten til å vise fiske, adkomst, parkering, bom og nøkkel.
 
 Jeg la inn informasjon om bom og adkomst for flere vannområder. Med hjelp av KI brukte jeg kartdata fra statens vegvesen og Norgeskart til å beregne avstander og bommer langs veiene.
+
+Jeg lagde error.tsx for å vise en melding hvis noe går galt ved henting av fiskevann. Jeg la også inn en "Prøv igjen" knapp.
+
+Jeg la også inn en footer i layout.tsx så footeren vises på alle sidene. Jeg fullførte "Om siden", med informasjon om målgruppe, kilder og hvem som har laget siden.
+Jeg flyttet innsjønavn og areal opp under hovedtittelen på detaljsidene og la til farge, font og annen CSS for å gjøre informasjonen tydeligere.
