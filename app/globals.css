@@ -22,3 +22,9 @@ a{
   outline: 3px solid #203d32;
   outline-offset: 4px;
 }
+.footer{
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  border: 1px solid #dcded3;
+  text-align: center;
+}

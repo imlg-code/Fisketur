@@ -21,6 +21,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body>
         <Header />
         <main>{children}</main>
+        <footer className="footer">
+          <p>Skoleprosjekt laget av Ida Mathilde.</p>
+        </footer>
         </body>
        
     </html>

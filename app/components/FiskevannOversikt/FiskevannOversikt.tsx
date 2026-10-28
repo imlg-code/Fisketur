@@ -19,7 +19,7 @@ export default function FiskevannOversikt(
 );
     return(
         <div>
-            <label htmlFor="fiskevann-Sok" >Søk etter fiskevann</label>
+            <label htmlFor="fiskevann-sok" >Søk etter fiskevann</label>
             <input
             id="Fiskevann-sok"
             type="search"
