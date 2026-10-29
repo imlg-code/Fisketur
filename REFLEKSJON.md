@@ -57,3 +57,5 @@ Jeg lagde error.tsx for å vise en melding hvis noe går galt ved henting av fis
 
 Jeg la også inn en footer i layout.tsx så footeren vises på alle sidene. Jeg fullførte "Om siden", med informasjon om målgruppe, kilder og hvem som har laget siden.
 Jeg flyttet innsjønavn og areal opp under hovedtittelen på detaljsidene og la til farge, font og annen CSS for å gjøre informasjonen tydeligere.
+
+Til slutt testet jeg søk med og uten treff, og at alle områdene kom tilbake når jeg tømte søkefeltet. Sjekket at detaljsidene funket etter refresh. Sjekket også at ved ugyldig adresse vises 404 melding. Testet sidene på små skjermer og brukte tastaturet til å navigere. Jeg kjørte også npm run build og npm run lint og begge fullførte uten feil.
