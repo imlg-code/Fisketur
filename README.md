@@ -1,32 +1,45 @@
 # Fisketur
+
 Dette er et individuelt skoleprosjekt som er laget med next.js og typescript.
 
 ## Formål og målgruppe
+
 Fisketur skal hjelpe familier eller tur interesserte med å utforske fiskevann utvalgt i Telemark og Sørmyr området. Nettstedet skal samle informasjon om fisk, vann, adkomst, bommer og evt nøkkelinformasjon, så brukeren kan planlegge turen etter forskjellige forhold.
 
 ## Teknologi
+
 - Next.js med App router
 - React og Typescript
 - CSS og CSS modules
 
 ## Hvordan kjøre prosjektet
+
 Du trenger Node.js og npm
 Kjør kodene fra web-mappen i terminalen.
+
 - npm install
 - npm run dev
-Åpne adressen som vises i terminalen.
+  Åpne adressen som vises i terminalen.
+
+Du trenger ingen API nøkkel til denne nettsiden, du trenger internett forbindelse for å data fra NVE.
 
 ## Kilder
-Planlagt hoved API er NVEs innsjødatabase:
-https://kart.nve.no/enterprise/rest/services/Innsjodatabase2/MapServer/5
-Har også sett på NVDB som kilde til registrerte bommer.
 
-Opplysninger om fiske, adkomst og nøkkelordninger suppleres med informasjon hentet fra grunneiere, fiskeforeninger og rapporter som blir funnet.
+Nettstedet henter innsjø opplysninger som er id, navn og areal fra:
+[NVEs innsjødatabase](https://kart.nve.no/enterprise/rest/services/Innsjodatabase2/MapServer/5).
+Hentingen skjer i app/library/nve.ts
+I app/library/vannomrader.ts kobles vannområdene til riktig NVE id.
+Et vannområde kan ha flere innsjøer.
+Informasjon om fiske, adkomst, bommer, nøkler og parkering er lagt inn manuelt i
+app/library/turinformasjon.ts. Kildene er blant annet fiskeforeninger, grunneiere,
+Statens vegvesen og Norgeskart.
 
 ## Kjente begrensninger
+
 Utvalget av fiskevann er begrenset til 18 fiskevannområder. Ikke alle gangruter, parkeringsplasser eller koblinger mellom bom og nøkkel er bekreftet. Manglende info skal merkes tydelig. Nettsiden gir ikke sanntids status på bommer eller tilgjengelige nøkler.
 
 ## Krav til oppgaven
+
 - Utvikle nettstedet med Next.js og TypeScript.
 - Teste at valgt eksternt API gir både liste og detaljer før resten bygges.
 - Hente og vise data fra minst ett eksternt API.

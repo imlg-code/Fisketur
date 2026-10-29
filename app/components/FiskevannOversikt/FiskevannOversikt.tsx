@@ -21,7 +21,7 @@ export default function FiskevannOversikt(
         <div>
             <label htmlFor="fiskevann-sok" >Søk etter fiskevann</label>
             <input
-            id="Fiskevann-sok"
+            id="fiskevann-sok"
             type="search"
             value={sokeTekst}
             onChange={(event) => setSokeTekst(event.target.value)}
