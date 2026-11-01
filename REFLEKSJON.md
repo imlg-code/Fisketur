@@ -12,17 +12,17 @@ Jeg laget typen Fiskevann som beskriver id, navn og areal. Navn og areal kan væ
 
 Jeg laget hentFiskevann i app/library/nve.ts for å skille datainnhentingen fra visningen på siden. Funksjonen lager en URL og bruker searchParams.set til å velge innsjøer, felter og JSON-format. Jeg bruker join(",") til å gjøre listen med id om til tekst med komma mellom tallene.
 
-Funksjonen bruker fetch til å sende forespørselen og await til å vente på svaret. Jeg sjekker response.ok før jeg leser innholdet med response.json(). Så kontrollerer jeg om svaret inneholder en feil, eller om features ikke er en liste. Ved feil bruker jeg throw new error. Feilene skal senere vises med en forståelig melding på siden.
+Funksjonen bruker fetch til å sende forespørselen og await til å vente på svaret. Jeg sjekker response.ok før jeg leser innholdet med response.json(). Så kontrollerer jeg om svaret inneholder en feil, eller om features ikke er en liste. Ved feil bruker jeg throw new error. Feilen vises via Next.js med meldingen jeg har laget i error.tsx.
 
-Jeg fikk først en feil fordi jeg brukte () istedenfor {} da jeg beskrev error typen. Det gjorde at siden ikke kunne kjøre. Etterpå fikk jeg en annen feil fordi jeg manglet paranteser rundt listen med vann id-er som ble sendt til NVE. 
+Jeg fikk først en feil fordi jeg brukte () istedenfor {} da jeg beskrev error typen. Det gjorde at siden ikke kunne kjøre. Etterpå fikk jeg en annen feil fordi jeg manglet paranteser rundt listen med vann id-er som ble sendt til NVE.
 
-Jeg bruker map i hentefunksjonen til å hente ut attributes fra hver oppføring. Funksjonen returnerer en liste med vannobjekter. På fiskevannsiden bruker jeg await hentFiskevann() for å få listen og en ny map for å lage listeelementer i jsx. Den ene map-en henter ut data, mens den andre lager innholdet som skal vises.
+Jeg bruker map i hentefunksjonen til å hente ut attributes fra hver oppføring. Funksjonen returnerer en liste med vannobjekter. På fiskevannsiden bruker jeg await hentFiskevann() for å hente listen. I FiskevannOversikt bruker jeg map til å lage listeelementene som vises på siden.
 
 Jeg la inn reservetekst med ?? når navnet mangler og en betingelse som viser «ikke oppgitt» hvis arealet er null.
 
-Jeg opprettet en hovedoppgave med seks underoppgaver i GitHub for å få oversikt over resten av arbeidet. Jeg bruker refleksjonsnotatet til å dokumentere hvordan jeg jobber underveis. 
+Jeg opprettet en hovedoppgave med seks underoppgaver i GitHub for å få oversikt over resten av arbeidet. Jeg bruker refleksjonsnotatet til å dokumentere hvordan jeg jobber underveis.
 
-Jeg laget FiskevannKort som en egen komponent og flyttet visningen av navn og areal dit. Komponenten mottar ett vannobjekt gjennom propen vann. FiskevannKortProps beskriver typen til props-objektet og inne i komponenten bruker jeg props.vann for å lese opplysningene. Siden henter fortsatt listen mens kortkomponenten bestemmer hvordan ett vann vises.
+Jeg laget FiskevannKort som en egen komponent for å gjenbruke visningen av hvert vannområde. Komponenten får området gjennom propen omrade og en liste med innsjøene gjennom propen innsjoer. FiskevannKortProps beskriver hvilke typer disse opplysningene skal ha. Fiskevannsiden henter dataene fra NVE. FiskevannOversikt kobler innsjøene til riktig område og sender opplysningene videre til FiskevannKort som viser kortet.
 
 Jeg laget en CSS Module for kortet og en annen for oversiktssiden. Kortets CSS styrer blant annet bakgrunn, ramme og luft inni kortet. Sidens CSS styrer listen og plasseringen av kortene.
 
@@ -30,18 +30,18 @@ Jeg brukte CSS Grid med repeat, auto-fit og minmax for å tilpasse antall kolonn
 
 NVE bruker tall som id, men jeg ønsker lesbare adresser som /fiskevann/eiangen. Jeg opprettet filen vannomrader.ts i app/library. Definerte typen Vannomrade som beskriver adressenavnet, navnet som skal vises på siden og hvilke NVE id'er området tilhører. Bruker number[] for å håndtere at vannområdene kan ha en id eller flere.
 
-Lagde mappen [adresseNavn] med en page.tsx som skal vise detaljsiden. Disse [] gjør at samme side kan brukes til forskjellige vannområder. Next.js sender navnet fra adressen gjennom params. Bruker await for å lese det. 
+Lagde mappen [adresseNavn] med en page.tsx som skal vise detaljsiden. Disse [] gjør at samme side kan brukes til forskjellige vannområder. Next.js sender navnet fra adressen gjennom params. Bruker await for å lese det.
 
-Bruker find for å lete etter området som passer til navnet i adressen. Hvis området finnes viser jeg navnet som er lagret i listen. Hvis det ikke finnes viser jeg en paragraf med "Fant ikke vannområdet".
+Jeg bruker find for å finne området som passer til navnet i adressen. Først viste jeg teksten «Fant ikke vannområdet» hvis området manglet. Senere byttet jeg til notFound(), som viser Next.js sin standard 404-side.
 
-Jeg bruker hentFiskevann til å hente listen med fiskevann fra NVE. Med filter beholder jeg bare vannområdene som tilhører det valgte området. Bruker includes til å sjekke om vannets id finnes i områdets liste med NVE id'er. 
+Jeg bruker hentFiskevann til å hente listen med fiskevann fra NVE. Med filter beholder jeg bare innsjøer som tilhører det valgte området. Bruker includes til å sjekke om vannets id finnes i områdets liste med NVE id'er.
 På detaljsiden bruker jeg map til å vise navn og areal.
 
 Jeg la inn de 18 vannområdene i vannomrader.ts. Hvert område har adressenavn og en liste med NVE id'er. Tjennane har to id'er, men skal vises som ett område. Jeg endret oversikten til å lage ett kort til hvert vannområde. Kortet får vannets navn og areal fra props. Jeg brukte Link på overskriften så brukeren kan klikke på navnet og føres til riktig detaljside.
 
-Jeg bruker notFound() hvis navnet i adressen ikke finnes i område listen, da vises Next.js sin standard 404 side. 
+Jeg bruker notFound() hvis navnet i adressen ikke finnes i område listen, da vises Next.js sin standard 404 side.
 
-Jeg lagde søkefunksjonen i en komponent som heter FiskevannOversikt. Den får vannområdene som props. Jeg la inn "use client" fordi komponenten skal reagere når brukeren skriver. Jeg bruker useState til å huske søketeksten. 
+Jeg lagde søkefunksjonen i en komponent som heter FiskevannOversikt. Den får vannområdene som props. Jeg la inn "use client" fordi komponenten skal reagere når brukeren skriver. Jeg bruker useState til å huske søketeksten.
 
 Jeg lagde turinformasjon.ts for å samle informasjon om fiske, adkomst, parkering, bom og nøkkel. Dette er opplysninger jeg legger inn manuelt med kilder, mens navn og areal fortsatt hentes fra NVE.
 
@@ -59,3 +59,5 @@ Jeg la også inn en footer i layout.tsx så footeren vises på alle sidene. Jeg 
 Jeg flyttet innsjønavn og areal opp under hovedtittelen på detaljsidene og la til farge, font og annen CSS for å gjøre informasjonen tydeligere.
 
 Til slutt testet jeg søk med og uten treff, og at alle områdene kom tilbake når jeg tømte søkefeltet. Sjekket at detaljsidene funket etter refresh. Sjekket også at ved ugyldig adresse vises 404 melding. Testet sidene på små skjermer og brukte tastaturet til å navigere. Jeg kjørte også npm run build og npm run lint og begge fullførte uten feil.
+
+Med mer tid ville jeg utbedret informasjonen med flere opplysninger slik at det ville bli lettere for folk å vurdere om turen passer for dem.
